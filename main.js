@@ -1,24 +1,40 @@
-const mailMenu = document.querySelector('.navbar-email') // Donde clickeo
-const desktopMenu = document.querySelector('.desktop-menu') // Ventana que aparece
-
-const hambMenu = document.querySelector('.hamburguer')
+const mailMenu = document.querySelector('.navbar-email')
+const desktopMenu = document.querySelector('.desktop-menu')
+const hambMenu = document.querySelector('img')
 const mobileMenu = document.querySelector('.mobile-menu')
 
-const cart = document.querySelector('.cart')
-const productDetail = document.querySelector('.product-detail')
-
-cart.addEventListener('click', toggleShoppingCart)
 mailMenu.addEventListener('click', toggleDesktopMenu)
 hambMenu.addEventListener('click', toggleMobileMenu)
 
 function toggleDesktopMenu() {
-        desktopMenu.classList.toggle('inactive')
+    const isShopCartMenuClosed = shopCartMenu.classList.contains('inactive')
+
+    if(!isShopCartMenuClosed) {
+        shopCartMenu.classList.add('inactive');
+    }
+
+    desktopMenu.classList.toggle('inactive');
 }
 
 function toggleMobileMenu() {
-    mobileMenu.classList.toggle('inactive')
+    const isShopCartMenuClosed = shopCartMenu.classList.contains('inactive')
+
+    if(!isShopCartMenuClosed) {
+        shopCartMenu.classList.add('inactive');
+    }
+
+    mobileMenu.classList.toggle('inactive');
 }
 
-function toggleShoppingCart() {
-    productDetail.classList.toggle('inactive')
+function toggleShopCartMenu() {
+    const isMobileMenuClosed = mobileMenu.classList.contains('inactive');
+    const isDesktopMenuClosed = desktopMenu.classList.contains('inactive');
+
+    if(!isMobileMenuClosed) {
+        mobileMenu.classList.add('inactive');
+    } else if (!isDesktopMenuClosed) {
+        desktopMenu.classList.add('inactive');
+    }
+
+    shopCartMenu.classList.toggle('inactive');
 }
