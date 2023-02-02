@@ -9,6 +9,18 @@ mailMenu.addEventListener('click', toggleDesktopMenu);
 hambMenu.addEventListener('click', toggleMobileMenu);
 cartMenu.addEventListener('click', toggleShopCartMenu);
 
+class Product {
+    constructor (img, cost, nameproduct ) {
+        this.img = img
+        this.productimg = new Image()
+        this.productimg.src = img
+        this.cost = cost
+        this.nameproduct = nameproduct
+    }
+}
+
+const bike = new Product("https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940", "$120,00", "Bike" )
+
 function toggleDesktopMenu() {
     const isShopCartMenuClosed = shopCartMenu.classList.contains('inactive')
 
@@ -48,11 +60,11 @@ templateTest =
 
 `
 <div class="product-card">
-    <img src="https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="Bike">
+    <img src='${bike.img}' alt="Bike">
     <div class="product-info">
     <div>
-        <p>$120,00</p>
-        <p>Bike</p>
+        <p>'${bike.cost}'</p>
+        <p>'${bike.nameproduct}'</p>
     </div>
     <figure>
         <img src="./icons/bt_add_to_cart.svg" alt="">
