@@ -7,7 +7,6 @@ const shopCartMenu = document.querySelector('.shopping-cart-detail');
 
 let templateTest = null;
 let productArr = [] 
-
 class Product {
     constructor (img, cost, nameproduct ) {
         this.img = img
@@ -66,7 +65,7 @@ templateTest =
 
 `
 <div class="product-card">
-    <img src='${Product.img}' alt="productPicture">
+    <img src='${Product.img}' alt="productPicture"">
     <div class="product-info">
     <div>
         <p>'${Product.cost}'</p>
@@ -79,5 +78,4 @@ templateTest =
 </div>
 `
 document.querySelector('.cards-container').innerHTML += templateTest
-
 })
