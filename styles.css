@@ -335,9 +335,11 @@ nav {
 
 .product-detail {
     width: 360px;
+    background-color: var(--white);
     padding-bottom: 24px;
     position: absolute;
-    right: 24px;
+    top: 68px;
+    right: 8px;
 }
 
 .product-detail-close {
@@ -433,7 +435,7 @@ nav {
 
 @media (max-width: 640px) {
     .product-detail {
-    width: 100%;
-    right: 0;
+    width: 95%;
+    right: 10px;
     }
 }

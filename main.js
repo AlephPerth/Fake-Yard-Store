@@ -4,8 +4,10 @@ const hambMenu = document.querySelector('.hamburger');
 const mobileMenu = document.querySelector('.mobile-menu');
 const cartMenu = document.querySelector('.cart');
 const shopCartMenu = document.querySelector('.shopping-cart-detail');
+const productDetail = document.querySelector('.product-detail');
 
-let templateTest = null;
+let productDetailAside = null;
+let productsCards = null;
 let productArr = [] 
 class Product {
     constructor (img, cost, nameproduct ) {
@@ -24,36 +26,63 @@ const dumbbells = new Product("https://images.pexels.com/photos/1092878/pexels-p
 
 productArr.push(bike, monitor, computer, dumbbells)
 
+//Mail menu
 mailMenu.addEventListener('click', () => {
-
     const isShopCartMenuClosed = shopCartMenu.classList.contains('inactive')
+    const isProductDetailClosed = productDetail.classList.contains('inactive')
 
     if(!isShopCartMenuClosed) {
         shopCartMenu.classList.add('inactive');
+    } else if (!isProductDetailClosed) {
+        productDetail.classList.add('inactive')
     }
 
     desktopMenu.classList.toggle('inactive');
 })
 
+//Mobile menu
 hambMenu.addEventListener('click', () => {
     const isShopCartMenuClosed = shopCartMenu.classList.contains('inactive')
+    const isProductDetailClosed = productDetail.classList.contains('inactive')
 
     if(!isShopCartMenuClosed) {
         shopCartMenu.classList.add('inactive');
+    } else if (!isProductDetailClosed) {
+        productDetail.classList.add('inactive')
     }
 
     mobileMenu.classList.toggle('inactive');
 })
 
-cartMenu.addEventListener('click', () => {
-
+//Product detail
+productDetail.addEventListener('click', () =>{
     const isMobileMenuClosed = mobileMenu.classList.contains('inactive');
     const isDesktopMenuClosed = desktopMenu.classList.contains('inactive');
+    const isShopCartMenuClosed = shopCartMenu.classList.contains('inactive')
 
     if(!isMobileMenuClosed) {
         mobileMenu.classList.add('inactive');
     } else if (!isDesktopMenuClosed) {
         desktopMenu.classList.add('inactive');
+    } else if (!isShopCartMenuClosed) {
+        shopCartMenu.classList.add('inactive')
+    }
+
+    productDetail.classList.toggle('inactive');
+})
+
+//Cart menu
+cartMenu.addEventListener('click', () => {
+    const isMobileMenuClosed = mobileMenu.classList.contains('inactive');
+    const isDesktopMenuClosed = desktopMenu.classList.contains('inactive');
+    const isProductDetailClosed = productDetail.classList.contains('inactive')
+
+    if(!isMobileMenuClosed) {
+        mobileMenu.classList.add('inactive');
+    } else if (!isDesktopMenuClosed) {
+        desktopMenu.classList.add('inactive');
+    } else if (!isProductDetailClosed) {
+        productDetail.classList.add('inactive')
     }
 
     shopCartMenu.classList.toggle('inactive');
@@ -61,11 +90,10 @@ cartMenu.addEventListener('click', () => {
 
 productArr.forEach((Product) => {
 
-templateTest =
-
+productsCards =
 `
 <div class="product-card">
-    <img src='${Product.img}' alt="productPicture"">
+    <img src='${Product.img}' alt='productPicture' onclick='productDetailOpen()'>
     <div class="product-info">
     <div>
         <p>'${Product.cost}'</p>
@@ -77,5 +105,37 @@ templateTest =
     </div>
 </div>
 `
-document.querySelector('.cards-container').innerHTML += templateTest
+document.querySelector('.cards-container').innerHTML += productsCards
 })
+
+for (let i = 0; i < productArr.length; i++) { //Comparar I vs valor de posición seleccionada del arr
+    let product = productArr[i];
+
+productDetailAside = 
+`
+<div class="product-detail-close">
+        <img src="./icons/icon_close.png" alt="close" onclick='productDetailCloses()'>
+    </div>
+        <img src="${product.img}" alt="bike"">
+    <div class="product-info">
+        <p>${product.cost}</p>
+        <p>${product.nameproduct}</p>
+        <p> Blablablablablablablabla </p>
+    <button class="primary-button add-to-cart-button">
+        <img src="./icons/bt_add_to_cart.svg" alt="add to cart">
+        Add to cart
+    </button>
+</div>
+`
+}
+
+document.querySelector('.product-detail').innerHTML = productDetailAside
+
+
+let productDetailOpen = () => {
+    productDetail.classList.remove('inactive')
+}
+
+let productDetailCloses = () => {
+    productDetail.classList.add('inactive')
+}
