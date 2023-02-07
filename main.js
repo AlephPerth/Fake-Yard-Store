@@ -9,6 +9,7 @@ const productDetail = document.querySelector('.product-detail');
 let productDetailAside = null;
 let productsCards = null;
 let productArr = [] 
+
 class Product {
     constructor (img, cost, nameproduct ) {
         this.img = img
@@ -42,33 +43,16 @@ mailMenu.addEventListener('click', () => {
 
 //Mobile menu
 hambMenu.addEventListener('click', () => {
-    const isShopCartMenuClosed = shopCartMenu.classList.contains('inactive')
-    const isProductDetailClosed = productDetail.classList.contains('inactive')
+    const isShopCartMenuClosed = shopCartMenu.classList.contains('inactive') // CartMenu tiene el class inactive
+    const isProductDetailClosed = productDetail.classList.contains('inactive') // ProductDetail tiene la class inactive
 
-    if(!isShopCartMenuClosed) {
-        shopCartMenu.classList.add('inactive');
+    if(!isShopCartMenuClosed) { //Si Cartmenu NO tiene la class inactive
+        shopCartMenu.classList.add('inactive'); // Agregarle la class inactive
     } else if (!isProductDetailClosed) {
         productDetail.classList.add('inactive')
     }
 
     mobileMenu.classList.toggle('inactive');
-})
-
-//Product detail
-productDetail.addEventListener('click', () =>{
-    const isMobileMenuClosed = mobileMenu.classList.contains('inactive');
-    const isDesktopMenuClosed = desktopMenu.classList.contains('inactive');
-    const isShopCartMenuClosed = shopCartMenu.classList.contains('inactive')
-
-    if(!isMobileMenuClosed) {
-        mobileMenu.classList.add('inactive');
-    } else if (!isDesktopMenuClosed) {
-        desktopMenu.classList.add('inactive');
-    } else if (!isShopCartMenuClosed) {
-        shopCartMenu.classList.add('inactive')
-    }
-
-    productDetail.classList.toggle('inactive');
 })
 
 //Cart menu
@@ -131,11 +115,23 @@ productDetailAside =
 
 document.querySelector('.product-detail').innerHTML = productDetailAside
 
-
-let productDetailOpen = () => {
-    productDetail.classList.remove('inactive')
-}
-
 let productDetailCloses = () => {
     productDetail.classList.add('inactive')
 }
+
+let productDetailOpen = () => {
+    const isMobileMenuClosed = mobileMenu.classList.contains('inactive');
+    const isDesktopMenuClosed = desktopMenu.classList.contains('inactive');
+    const isShopCartMenuClosed = shopCartMenu.classList.contains('inactive')
+
+    if(!isMobileMenuClosed) {
+        mobileMenu.classList.add('inactive');
+    } else if (!isDesktopMenuClosed) {
+        desktopMenu.classList.add('inactive');
+    } else if (!isShopCartMenuClosed) {
+        shopCartMenu.classList.add('inactive')
+    }
+
+    productDetail.classList.remove('inactive')
+}
+
