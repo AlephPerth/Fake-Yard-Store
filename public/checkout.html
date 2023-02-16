@@ -84,13 +84,37 @@
       border-radius: 20px;
       object-fit: cover;
     }
+
     .shopping-cart p:nth-child(2) {
       color: var(--very-light-pink);
     }
+
     .shopping-cart p:nth-child(3) {
       font-size: var(--md);
       font-weight: bold;
     }
+
+    .login-button {
+      margin-top: 18px;
+    }
+
+    .primary-button {
+      background-color: var(--hospital-green);
+      text-align: center;
+      border-radius: 8px;
+      border: none;
+      color: var(--white);
+      width: 100%;
+      cursor: pointer;
+      font-size: var(--md);
+      font-weight: bold;
+      height: 50px;
+    }
+
+.primary-button:hover {
+    background-color: #8fdf9b;
+}
+
   </style>
 </head>
 <body>
@@ -130,6 +154,15 @@
           <p>Bike</p>
           <p>$30,00</p>
         </div>
+
+          <a href="/">
+            <input value="Go to pay" class="primary-button login-button">
+          <a>
+
+          <a href="./main-page.html">
+            <input value="Back to page" class="primary-button login-button">
+          </a>
+
       </div>
     </div>
   </div>

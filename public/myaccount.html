@@ -42,18 +42,14 @@
     }
     .title {
       font-size: var(--lg);
-      margin-bottom: 12px;
-      text-align: center;
-    }
-    .subtitle {
-      color: var(--very-light-pink);
-      font-size: var(--md);
-      font-weight: 300;
-      margin-top: 0;
-      margin-bottom: 32px;
-      text-align: center;
+      margin-bottom: 36px;
+      text-align: start;
     }
     .form {
+      display: flex;
+      flex-direction: column;
+    }
+    .form div {
       display: flex;
       flex-direction: column;
     }
@@ -62,53 +58,67 @@
       font-weight: bold;
       margin-bottom: 4px;
     }
-    .input {
-      background-color: var(--text-input-field);
-      border: none;
-      border-radius: 8px;
-      height: 30px;
+    .value {
+      color: var(--very-light-pink);
       font-size: var(--md);
-      padding: 6px;
-      margin-bottom: 12px;
+      margin: 8px 0 32px 0;
     }
-    .primary-button {
-      background-color: var(--hospital-green);
+    .secondary-button {
+      background-color: var(--white);
+      text-align: center;
       border-radius: 8px;
-      border: none;
-      color: var(--white);
+      border: 1px solid var(--hospital-green);
+      color: var(--hospital-green);
       width: 100%;
       cursor: pointer;
       font-size: var(--md);
       font-weight: bold;
       height: 50px;
     }
+
+    .secondary-button:hover {
+        background-color: var(--hospital-green);
+        color: var(--white);
+    }
+
     .login-button {
       margin-top: 14px;
-      margin-bottom: 30px;
     }
     @media (max-width: 640px) {
-      .logo {
-        display: block;
+      
+      .form {
+        height: 100%;
+        justify-content: space-between;
       }
     }
   </style>
+
 </head>
 <body>
   <div class="login">
     <div class="form-container">
-      <img src="./logos/logo_yard_sale.svg" alt="logo" class="logo">
-
-      <h1 class="title">Create a new password</h1>
-      <p class="subtitle">Enter a new passwrd for yue account</p>
+      <h1 class="title">My account</h1>
 
       <form action="/" class="form">
-        <label for="password" class="label">Password</label>
-        <input type="password" id="password" placeholder="*********" class="input input-password">
+        <div>
+          <label for="name" class="label">Name</label>
+          <p class="value">Harry Potter</p>
 
-        <label for="new-password" class="label">Password</label>
-        <input type="password" id="new-password" placeholder="*********" class="input input-password">
+          <label for="email" class="label">Email</label>
+          <p class="value">harrypotter@hogwarts.uk</p>
 
-        <input type="submit" value="Confirm" class="primary-button login-button">
+          <label for="password" class="label">Password</label>
+          <p class="value">*********</p>
+        </div>
+
+        <a href="./myaccountedit.html">
+          <input value="Edit" class="secondary-button login-button">
+        </a>
+
+        <a href="./main-page.html">
+          <input value="Back to page" class="secondary-button login-button">
+        </a>
+      
       </form>
     </div>
   </div>

@@ -7,7 +7,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;500;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="./styles.css">
+  <link rel="stylesheet" href="./CSS/main-page.css">
+  <link rel="stylesheet" href="navbar.css">
   <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
   <title>Yard Sale</title>
 </head>
@@ -54,15 +55,15 @@
     <div class="desktop-menu inactive">
         <ul>
           <li>
-            <a href="/" class="title">My orders</a>
+            <a href="./myorders.html" class="title">My orders</a>
           </li>
     
           <li>
-            <a href="/">My account</a>
+            <a href="./myaccount.html">My account</a>
           </li>
     
           <li>
-            <a href="/">Sign out</a>
+            <a href="./login-page.html" class="sign-out">Sign out</a>
           </li>
         </ul>
       </div>
@@ -94,19 +95,16 @@
     
         <ul>
           <li>
-            <a href="/">My orders</a>
+            <p>harrypotter@hogwarts.uk</p>
           </li>
           <li>
-            <a href="/">My account</a>
-          </li>
-        </ul>
-    
-        <ul>
-          <li>
-            <a href="/" class="email">harrypotter@hogwarts.uk</a>
+            <a href="./myorders.html">My orders</a>
           </li>
           <li>
-            <a href="/" class="sign-out">Sign out</a>
+            <a href="./myaccount.html">My account</a>
+          </li>
+          <li>
+            <a href="./login-page.html" class="sign-out">Sign out</a>
           </li>
         </ul>
       </div>
@@ -153,9 +151,10 @@
         <p>$360.00</p>
       </div>
 
-      <button class="primary-button">
-        Checkout
-      </button>
+      <a href="./checkout.html">
+        <button class="primary-button">Checkout</button>
+      </a>
+    
     </div>
   </div>
   </aside>
@@ -172,7 +171,7 @@
     </div>
   </section>
 
-<script src="./main.js"></script>
+<script src="./JS/main.js"></script>
 
 </body>
 </html>

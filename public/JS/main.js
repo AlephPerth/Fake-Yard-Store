@@ -11,21 +11,23 @@ let productsCards = null;
 let productArr = [] 
 
 class Product {
-    constructor (img, cost, nameproduct ) {
+    constructor (img, cost, nameproduct, category ) {
         this.img = img
         this.productimg = new Image()
         this.productimg.src = img
         this.cost = cost
         this.nameproduct = nameproduct
+        this.category = category
     }
 }
 
-const bike = new Product("https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940", "$120,00", "Bike" )
-const monitor = new Product("https://images.pexels.com/photos/1779487/pexels-photo-1779487.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1", "$100,00", "Monitor" )
-const computer = new Product("https://images.pexels.com/photos/4005569/pexels-photo-4005569.jpeg?auto=compress&cs=tinysrgb&w=1600", "$250,00", "Computer" )
-const dumbbells = new Product("https://images.pexels.com/photos/1092878/pexels-photo-1092878.jpeg?auto=compress&cs=tinysrgb&w=1600", "$80,00", "Dumbbells" )
+const jersei = new Product("https://images.pexels.com/photos/45982/pexels-photo-45982.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1", "$120,00", "Jersei", "clothes" )
+const couch = new Product("https://images.pexels.com/photos/276566/pexels-photo-276566.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1", "$100,00", "Couch", "electronics")
+const computer = new Product("https://images.pexels.com/photos/4005569/pexels-photo-4005569.jpeg?auto=compress&cs=tinysrgb&w=1600", "$250,00", "Computer", "furnitures" )
+const unicorndoll = new Product("https://images.pexels.com/photos/4887163/pexels-photo-4887163.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1", "$80,00", "Unicorn doll", "toys" )
+const books = new Product("https://images.pexels.com/photos/14454202/pexels-photo-14454202.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1", "$50,00", "Lot books", "others")
 
-productArr.push(bike, monitor, computer, dumbbells)
+productArr.push(jersei, couch, computer, unicorndoll, books)
 
 //Mail menu
 mailMenu.addEventListener('click', () => {
@@ -76,7 +78,7 @@ productArr.forEach((Product) => {
 
 productsCards =
 `
-<div class="product-card">
+<div class="product-card" id='${Product.category}'>
     <img src='${Product.img}' alt='productPicture' onclick='productDetailOpen()'>
     <div class="product-info">
     <div>
@@ -124,14 +126,13 @@ let productDetailOpen = () => {
     const isDesktopMenuClosed = desktopMenu.classList.contains('inactive');
     const isShopCartMenuClosed = shopCartMenu.classList.contains('inactive')
 
-    if(!isMobileMenuClosed) {
+    if (!isMobileMenuClosed) {
         mobileMenu.classList.add('inactive');
     } else if (!isDesktopMenuClosed) {
         desktopMenu.classList.add('inactive');
     } else if (!isShopCartMenuClosed) {
         shopCartMenu.classList.add('inactive')
     }
-
-    productDetail.classList.remove('inactive')
+        productDetail.classList.remove('inactive')
 }
 
