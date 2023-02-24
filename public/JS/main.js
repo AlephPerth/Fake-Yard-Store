@@ -9,6 +9,7 @@ const productDetail = document.querySelector('.product-detail');
 let item = 0;
 let total = 0;
 let unit = 1;
+let cost = null;
 let productDetailAside = null;
 let productsCards = null;
 let productArr = [] 
@@ -24,11 +25,11 @@ class Product {
     }
 }
 
-const jersei = new Product("https://images.pexels.com/photos/45982/pexels-photo-45982.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1", "$120,00", "Jersei", "clothes" )
-const couch = new Product("https://images.pexels.com/photos/276566/pexels-photo-276566.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1", "$100,00", "Couch", "electronics")
-const computer = new Product("https://images.pexels.com/photos/4005569/pexels-photo-4005569.jpeg?auto=compress&cs=tinysrgb&w=1600", "$250,00", "Computer", "furnitures" )
-const unicorndoll = new Product("https://images.pexels.com/photos/4887163/pexels-photo-4887163.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1", "$80,00", "Unicorn doll", "toys" )
-const books = new Product("https://images.pexels.com/photos/14454202/pexels-photo-14454202.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1", "$50,00", "Lot books", "others")
+const jersei = new Product("https://images.pexels.com/photos/45982/pexels-photo-45982.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1", 120.00, "Jersei", "clothes" )
+const couch = new Product("https://images.pexels.com/photos/276566/pexels-photo-276566.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1", 100.00, "Couch", "electronics")
+const computer = new Product("https://images.pexels.com/photos/4005569/pexels-photo-4005569.jpeg?auto=compress&cs=tinysrgb&w=1600", 250.00, "Computer", "furnitures" )
+const unicorndoll = new Product("https://images.pexels.com/photos/4887163/pexels-photo-4887163.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1", 80.00, "Unicorn doll", "toys" )
+const books = new Product("https://images.pexels.com/photos/14454202/pexels-photo-14454202.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1", 50.00, "Lot books", "others")
 
 productArr.push(jersei, couch, computer, unicorndoll, books)
 
@@ -85,7 +86,7 @@ productsCards =
     <img src='${Product.img}' alt='productPicture' onclick='productDetailOpen()'>
     <div class="product-info">
     <div>
-        <p>'${Product.cost}'</p>
+        <p>$${Product.cost}</p>
         <p>'${Product.nameproduct}'</p>
     </div>
     <figure>
@@ -112,7 +113,7 @@ let addItem = () => {
         <img src='${books.img}' alt='${books.nameproduct}'>
       </figure>
       <p>${books.nameproduct}</p>
-      <p>${books.cost}</p>
+      <p>$${books.cost}</p>
       <button class='btnAdd' onclick='addUnits()'>+</button>
       <button class='btnRem' onclick='remUnits()'>-</button>
       <p>Units:</p>
@@ -122,9 +123,11 @@ let addItem = () => {
 
     document.querySelector('.shoppingCart').innerHTML += myOrder
 
-}
+    cost = books.cost
+    total = `$${cost}`
+    document.querySelector('.total').innerHTML = total
 
-    else {
+} else {
         let addUnitsInernalFunction = () => {
 
             unit++
@@ -134,14 +137,15 @@ let addItem = () => {
             item++
             itemAdded = `${item}`
             document.querySelector('.items').innerHTML = itemAdded
+
+            cost = books.cost*item
+            total = `$${cost}`
+            document.querySelector('.total').innerHTML = total
     }
-    return addUnitsInernalFunction()
+
+        return addUnitsInernalFunction()
 }
 
-    total++
-    totalAdd = ``
-
-    document.querySelector('.total').innerHTML = totalAdd
 }
 
 let addUnits = () => {
@@ -153,6 +157,10 @@ let addUnits = () => {
     item++
     itemAdded = `${item}`
     document.querySelector('.items').innerHTML = itemAdded
+
+    cost = books.cost*item
+    total = `$${cost}`
+    document.querySelector('.total').innerHTML = total
 }
 
 let remUnits = () => {
@@ -184,7 +192,7 @@ productDetailAside =
     </div>
         <img src="${product.img}" alt='${product.nameproduct}'>
     <div class="product-info">
-        <p>${product.cost}</p>
+        <p>$${product.cost}</p>
         <p>${product.nameproduct}</p>
         <p>A lot of old and mysterious books...That is a Necronomicon?</p>
         <button class="primary-button add-to-cart-button" onclick='addItem()'>
