@@ -6,6 +6,9 @@ const cartMenu = document.querySelector('.cart');
 const shopCartMenu = document.querySelector('.shopping-cart-detail');
 const productDetail = document.querySelector('.product-detail');
 
+let item = 0;
+let total = 0;
+let unit = 1;
 let productDetailAside = null;
 let productsCards = null;
 let productArr = [] 
@@ -86,13 +89,90 @@ productsCards =
         <p>'${Product.nameproduct}'</p>
     </div>
     <figure>
-        <img src="./icons/bt_add_to_cart.svg" alt="cartIcon">
+        <img src="./icons/bt_add_to_cart.svg" alt="cartIcon" onclick='addItem()' class='addToCard'>
     </figure>
     </div>
 </div>
 `
 document.querySelector('.cards-container').innerHTML += productsCards
 })
+
+let addItem = () => {
+
+    if (item == 0) {
+    item++
+    itemAdded = `${item}`
+    document.querySelector('.items').innerHTML = itemAdded
+
+    myOrder =
+
+    `<div class="my-order-content">
+    <div class="shopping-cart">
+      <figure>
+        <img src='${books.img}' alt='${books.nameproduct}'>
+      </figure>
+      <p>${books.nameproduct}</p>
+      <p>${books.cost}</p>
+      <button class='btnAdd' onclick='addUnits()'>+</button>
+      <button class='btnRem' onclick='remUnits()'>-</button>
+      <p>Units:</p>
+      <div class='units'>1</div>
+      <img src="./icons/icon_close.png" alt="close" onclick='removeItem()'>
+    </div>`
+
+    document.querySelector('.shoppingCart').innerHTML += myOrder
+
+}
+
+    else {
+        let addUnitsInernalFunction = () => {
+
+            unit++
+            unitsAded = `${unit}`
+            document.querySelector('.units').innerHTML = unitsAded
+        
+            item++
+            itemAdded = `${item}`
+            document.querySelector('.items').innerHTML = itemAdded
+    }
+    return addUnitsInernalFunction()
+}
+
+    total++
+    totalAdd = ``
+
+    document.querySelector('.total').innerHTML = totalAdd
+}
+
+let addUnits = () => {
+
+    unit++
+    unitsAded = `${unit}`
+    document.querySelector('.units').innerHTML = unitsAded
+
+    item++
+    itemAdded = `${item}`
+    document.querySelector('.items').innerHTML = itemAdded
+}
+
+let remUnits = () => {
+
+        if (unit > 0 && item > 0) {
+        unit--
+        unitsAded = `${unit}`
+        document.querySelector('.units').innerHTML = unitsAded
+
+        item--
+        itemAdded = `${item}`
+        document.querySelector('.items').innerHTML = itemAdded
+
+        } else {
+    }
+}
+
+let removeItem = () => {
+
+}
 
 for (let i = 0; i < productArr.length; i++) { //Comparar I vs valor de posición seleccionada del arr
     let product = productArr[i];
@@ -102,13 +182,12 @@ productDetailAside =
 <div class="product-detail-close">
         <img src="./icons/icon_close.png" alt="close" onclick='productDetailCloses()'>
     </div>
-        <img src="${product.img}" alt="bike"">
+        <img src="${product.img}" alt='${product.nameproduct}'>
     <div class="product-info">
         <p>${product.cost}</p>
         <p>${product.nameproduct}</p>
-        <p> Blablablablablablablabla </p>
-    <button class="primary-button add-to-cart-button">
-        <img src="./icons/bt_add_to_cart.svg" alt="add to cart">
+        <p>A lot of old and mysterious books...That is a Necronomicon?</p>
+        <button class="primary-button add-to-cart-button" onclick='addItem()'>
         Add to cart
     </button>
 </div>
