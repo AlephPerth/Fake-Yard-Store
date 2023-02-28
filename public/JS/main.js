@@ -107,7 +107,7 @@ let addItem = () => {
 
     myOrder =
 
-    `<div class="my-order-content">
+   `<div class="my-order-content">
     <div class="shopping-cart">
       <figure>
         <img src='${books.img}' alt='${books.nameproduct}'>
@@ -117,7 +117,7 @@ let addItem = () => {
       <button class='btnAdd' onclick='addUnits()'>+</button>
       <button class='btnRem' onclick='remUnits()'>-</button>
       <p>Units:</p>
-      <div class='units'>1</div>
+      <div class='units' id='${books.nameproduct}'>1</div>
       <img src="./icons/icon_close.png" alt="close" onclick='removeItem()'>
     </div>`
 
@@ -190,7 +190,7 @@ productDetailAside =
 <div class="product-detail-close">
         <img src="./icons/icon_close.png" alt="close" onclick='productDetailCloses()'>
     </div>
-        <img src="${product.img}" alt='${product.nameproduct}'>
+        <img src="${product.img}" alt='${product.nameproduct} class='product'>
     <div class="product-info">
         <p>$${product.cost}</p>
         <p>${product.nameproduct}</p>
