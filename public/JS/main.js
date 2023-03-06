@@ -83,7 +83,7 @@ productArr.forEach((Product) => {
 productsCards =
 `
 <div class="product-card" id='${Product.category}'>
-    <img src='${Product.img}' alt='productPicture' onclick='productDetailOpen()'>
+    <img src='${Product.img}' alt='productPicture' class='img-main-page' onclick='productDetailOpen()'>
     <div class="product-info">
     <div>
         <p>$${Product.cost}</p>
@@ -108,17 +108,17 @@ let addItem = () => {
     myOrder =
 
     `<div class="my-order-content">
-    <div class="shopping-cart">
-      <figure>
-        <img src='${books.img}' alt='${books.nameproduct}'>
-      </figure>
-      <p>${books.nameproduct}</p>
-      <p>$${books.cost}</p>
-      <button class='btnAdd' onclick='addUnits()'>+</button>
-      <button class='btnRem' onclick='remUnits()'>-</button>
-      <p>Units:</p>
-      <div class='units'>1</div>
-      <img src="./icons/icon_close.png" alt="close" onclick='removeItem()'>
+        <div class="shopping-cart">
+            <figure>
+                <img src='${books.img}' alt='${books.nameproduct}'>
+            </figure>
+        <p>${books.nameproduct}</p>
+        <p>$${books.cost}</p>
+                <button class='btnAdd' onclick='addUnits()'>+</button>
+                <button class='btnRem' onclick='remUnits()'>-</button>
+        <p>Units:</p>
+        <div class='units' id='${books.nameproduct}'>1</div>
+                <img src="./icons/icon_close.png" alt="close" onclick='removeItem()'>
     </div>`
 
     document.querySelector('.shoppingCart').innerHTML += myOrder
@@ -141,11 +141,9 @@ let addItem = () => {
             cost = books.cost*item
             total = `$${cost}`
             document.querySelector('.total').innerHTML = total
+        }
+            return addUnitsInernalFunction()
     }
-
-        return addUnitsInernalFunction()
-}
-
 }
 
 let addUnits = () => {
@@ -190,7 +188,7 @@ productDetailAside =
 <div class="product-detail-close">
         <img src="./icons/icon_close.png" alt="close" onclick='productDetailCloses()'>
     </div>
-        <img src="${product.img}" alt='${product.nameproduct}'>
+        <img src="${product.img}" alt='${product.nameproduct} class='product'>
     <div class="product-info">
         <p>$${product.cost}</p>
         <p>${product.nameproduct}</p>
@@ -222,4 +220,3 @@ let productDetailOpen = () => {
     }
         productDetail.classList.remove('inactive')
 }
-

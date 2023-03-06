@@ -1,40 +1,42 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang='en'>
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="./CSS/login-page.css">
-  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;500;700&display=swap" rel="stylesheet">
+  <meta charset='UTF-8'>
+  <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+  <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+  <link rel='preconnect' href='https://fonts.googleapis.com'>
+  <link rel='preconnect' href='https://fonts.gstatic.com' crossorigin>
+  <link rel='stylesheet' href='./CSS/login-page.css'>
+  <link href='https://fonts.googleapis.com/css2?family=Quicksand:wght@300;500;700&display=swap' rel='stylesheet'>
   <title>Yard Sale</title>
   
 </head>
 <body>
-  <div class="login">
-    <div class="form-container-login">
-      <img src="./logos/logo_yard_sale.svg" alt="logo" class="logo">
+  <div class='login'>
+    <div class='form-container-login'>
+      <img src='./logos/logo_yard_sale.svg' alt='logo' class='logo'>
 
-      <form action="/" class="form">
-        <label for="email" class="label">Email address</label>
-        <input type="text" id="email" placeholder="harrypotter@hogwarts.uk" class="input input-email">
+      <form action='/' class='form'>
+        <label for='email' class='label'>Email address</label>
+        <input type='text' id='email' placeholder='lunalovegood@hogwarts.uk' class='input input-email' value="lunalovegood@hogwarts.uk">
 
-        <label for="password" class="label">Password</label>
-        <input type="password" id="password" placeholder="*********" class="input input-password">
+        <label for='password' class='label'>Password</label>
+        <input type='password' id='password' placeholder='*********' autocomplete='on' class='input input-password' value="Alohomora">
 
-        <a href="./main-page.html">
-          <input value="Log in" class="primary-button login-button">
-        </a>
-        
-        <a href="./forget-pass.html" class="forgot-pass">Forgot my password</a>
       </form>
 
-        <a href="./singup-page.html">
-          <button class="secondary-button signup-button">Sign up</button>
+        <span class="notPass"></span>
+
+        <button class='primary-button login-button'>Log in</button>
+
+        <a href='./forget-pass.html' class='forgot-pass'>Forgot your password? Click here</a>
+
+        <a href='./singup-page.html'>
+          <button class='secondary-button signup-button'>Sign up</button>
         </a>
 
     </div>
   </div>
+<script src='./JS/login.js'></script>
 </body>
 </html>

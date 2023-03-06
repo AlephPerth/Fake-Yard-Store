@@ -4,6 +4,7 @@
   --very-light-pink: #C7C7C7;
   --text-input-field: #F7F7F7;
   --hospital-green: #ACD9B2;
+  --hospital-geen-hover: #8fdf9b;
   --sm: 14px;
   --md: 16px;
   --lg: 18px;
@@ -100,7 +101,7 @@ body {
 }
 
 .primary-button:hover {
-    background-color: #8fdf9b;
+    background-color: var(--hospital-geen-hover);
 }
 
 .secondary-button {
@@ -120,13 +121,33 @@ body {
     color: var(--white);
 }
 
+.forgot-pass {
+  font-size: var(--md);
+  text-decoration: none;
+  text-align: center;
+}
+
 .forgot-pass:hover {
-    text-decoration: underline;
-    font-weight: bold;
+    font-weight: 900;
 }
 
 .login-button {
-  margin-top: 22px;
+  margin-top: 12px;
+  margin-bottom: 12px;
+}
+
+.login-button:hover {
+  background-color: var(--hospital-geen-hover);
+}
+
+.signup-button {
+  margin-top: 12px;
+}
+
+.notPass {
+  font-size: var(--md);
+  font-weight: bold;
+  text-align: center;
 }
 
 /* ACCOUNT CREATING */
